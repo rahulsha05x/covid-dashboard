@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import Grid from '@material-ui/core/Grid';
+import styled from 'styled-components';
 import Header from '../Header/Header';
 import Banner from '../Banner/Banner';
 import Country from '../Country/Country';
@@ -7,6 +8,9 @@ import Panel from '../Panel/Panel';
 import Spinner from 'react-bootstrap/Spinner'
 import {AppConstant} from '../utils/Constants';
 
+const MainWrapper = styled.div`
+    padding:3px;
+`
 const Main = () => {
     const initialSortState = {
         'country':'asc',
@@ -142,7 +146,7 @@ const Main = () => {
                         </div>
                     )}
                     {!isLoading && (
-                        <>
+                        <MainWrapper>
                             <Banner latest = {covidData.latest}/>
                             <Panel 
                                 data={covidData.locations} 
@@ -150,7 +154,7 @@ const Main = () => {
                                 sortByParam={sortByParam}
                                 rowClicked = {rowClickHandler}
                             />
-                        </>
+                        </MainWrapper>
                     )}
                     
                 </Grid>

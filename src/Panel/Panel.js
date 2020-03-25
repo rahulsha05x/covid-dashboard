@@ -9,6 +9,14 @@ const PanelDiv = styled.div`
 const TableContainer = styled.div`
     height:500px;
     overflow-y:scroll;
+    tbody {
+        tr {
+            &:hover {
+                cursor:pointer;
+                background-color: lightgreen;
+            }
+        }
+    }
 `
 const Panel = ({data,search,sortByParam,rowClicked}) => {
     
